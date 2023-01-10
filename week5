@@ -1,0 +1,104 @@
+calculator 
+#!/bin/bash
+echo "calculate basic arithemetic operations"
+echo "give 1st number"
+read x
+echo "give 2nd number"
+read y
+echo "for addition use 1"
+echo "for substractionn use 2"
+echo "for mul use 3"
+echo "for deiv use 4"
+read choice 
+case $choice in 
+1) solution=`expr $x + $y`
+   echo "solution :$solution" ;;
+2) solution=`expr $x - $y`
+   echo "solution :$solution" ;;
+3) solution=`expr $x \* $y`
+   echo "solution :$solution" ;;
+4) solution=`expr $x / $y`
+   echo "solution :$solution" ;;
+*) echo "invalid option"
+esac 
+
+sum of n even numbers
+#!/bin/bash
+echo "sum of even numbers till n, give n"
+read n
+sum=0
+i=0
+while [ $i -le $n ]
+do
+sum=`expr $sum + $i`
+i=`expr $i + 2`
+done 
+echo "sum is: $sum"
+
+factorial
+#!/bin/bash
+echo "give an input to find a factorial"
+read x
+fact=1
+i=1
+while [ $i -le $x ]
+do
+fact=`expr $i \* $fact`
+i=`expr $i + 1`
+done 
+echo "factorial is $fact"
+
+gross salary
+#!/bin/bash
+echo "enter salary amount"
+read salary
+da=$(echo "$salary * 10/100" | bc)
+br=$(echo "$salary * 20/100" | bc)
+gr=$(echo "$salary + $br + $da" | bc)
+echo "the gross salary is $gr"
+
+print numbers
+#!/bin/bash
+echo "print numbers from 1 to 5"
+i=1
+while [ $i -le 5 ]
+do
+echo "$i"
+i=`expr $i + 1`
+done 
+echo "print numbers from 5 to 10"
+i=5
+while [ $i -le 10 ]
+do
+echo "$i"
+i=`expr $i + 1`
+done 
+
+temperature conversion
+#!/bin/bash
+echo "convert from fahrenheit o celsius"
+read temp
+x=$(echo "$temp-32" | bc)
+tempInCel=$(echo "$x * 5 / 9" | bc)
+echo "temp in cel: $tempInCel"
+
+user
+#!/bin/bash
+answer=y
+while [ $answer=y ]
+do
+echo "enter code and description" > /dev/tty
+read code 
+read description
+echo "$code || $description" >> newfile
+echo "enter anymore y/n ?" > /dev/tty
+read anymore
+case $anymore in 
+y*,Y*) answer=y ;;
+n*,N*) answer=n ;;
+*) answer=n ;;
+esac
+done 
+
+
+
